@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+	<style>
+		#drum-machine {
+  margin-top:15%;
+	width:600px;
+  height:250px;
+	background-color:lightgray;
+	margin-left:auto;
+  margin-right:auto;
+  font-family: 'Courier';
+  font-size:12px;
+  color:RGB(0,150,255);
+  padding-left:3%;
+  padding-top:1%;
+  padding-bottom:1%;
+}
+#pad-container {
+  width:40%;
+	float:left;
+}
+.drum-pad {
+	width:20%;
+	height: 50px;
+	margin-right:20px;
+  margin-bottom:4%;
+	float:left;
+	border-radius:10%;
+	text-align:center;
+	background-color:RGB(235,235,235);
+	box-shadow: 5px 5px RGB(0,150,255);
+  font-size:24px;
+}
+
+#off-on {
+  margin-left:auto;
+  margin-right:auto;
+  width:50%;
+  font-size:12px;
+			
+}
+#display-container {
+  margin-top:5px;
+	font-size:20px;
+	float:right;
+	width:45%;
+}
+
+#off {
+  float:left;
+  padding-right:7px;
+}
+#on {
+  float:left;
+  padding-left:7px;
+}
+#off-on-switch-container {
+	padding-top:15%;
+  float:center;
+}
+#display {
+	font-family: 'Orbitron';
+  color:white;
+  background-color:black;
+  height: 28px;
+  width:80%;
+  text-align:center;
+}
+#off-on-box {
+  width:36px;
+  height:18px;
+  margin-left:auto;
+  margin-right:auto;
+  background: RGB(30,30,30);
+  padding:1px;
+  float:left;
+}
+#switch {
+  float:left;
+  width:16px;
+  height:18px;
+  border-radius:4px;
+  background:RGB(0,150,255);
+}
+	</style>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+		<script defer src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+		<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type='text/babel'>
+			function DrumPads(props) {
+  return(
+    <div>
+      <div className="drum-pad" id="Heater-1" onClick={()=>{props.top?props.playSound("Q", "Heater-1"):props.playSound("Q", "Chord-1")}}>Q<audio id="Q" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3":"https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="Heater-2" onClick={()=>{props.top?props.playSound("W", "Heater-2"):props.playSound("W", "Chord-2")}}>W<audio id="W" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3":"https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="Heater-3" onClick={()=>{props.top?props.playSound("E", "Heater-3"):props.playSound("E", "Chord-3")}}>E<audio id="E" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3":"https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="Heater-4_1" onClick={()=>{props.top?props.playSound("A", "Heater-4_1"):props.playSound("A", "Give_us_a_light")}}>A<audio id="A" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3":"https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="Heater-6" onClick={()=>{props.top?props.playSound("S", "Heater-6"):props.playSound("S", "Dry_Ohh")}}>S<audio id="S" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3":"https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="Dsc_Oh" onClick={()=>{props.top?props.playSound("D", "Dsc_Oh"):props.playSound("D", "Bld_H1")}}>D<audio  id="D" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3":"https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="Kick_n_Hat" onClick={()=>{props.top?props.playSound("Z", "Kick_n_Hat"):props.playSound("Z", "punchy_kick_1")}}>Z<audio id="Z" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3":"https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="RP4_KICK_1" onClick={()=>{props.top?props.playSound("X", "RP4_KICK_1"):props.playSound("X", "side_stick_1")}}>X<audio id="X" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3":"https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"}></audio>
+      </div>
+			<div className="drum-pad" id="Cev_H2" onClick={()=>{props.top?props.playSound("C", "Cev_H2"):props.playSound("C", "Brk_Snr")}}>C<audio id="C" className="clip" src={props.top?"https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3":"https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"}></audio>
+      </div>
+    </div>
+  );
+}
+
+function OnOffSwitch(props) {
+  return(
+    <div id="off-on-switch-container">
+      <div id="off">{props.leftOption}</div>
+      <div id="off-on-box" onClick={props.toggleOnOff}>
+        <div id="switch" style={{float:props.switchValue?"right" : "left"}}></div>
+      </div>
+      <div id="on">{props.rightOption}</div>
+    </div>
+  );
+}
+
+function Display(props) {
+  return (
+		<div id="display">
+       {props.text}
+    </div>
+	);
+}
+
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+			text: "",
+			on:true,
+			top:true};
+      this.playSound = this.playSound.bind(this);
+			this.handleOnOff = this.handleOnOff.bind(this);
+			this.handleTopBottom = this.handleTopBottom.bind(this);
+      this.handleKeyDown = this.handleKeyDown.bind(this);
+  	}
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+    window.focus();
+  }
+    render() {
+    	return (
+        <div id="drum-machine"><h1>FCC Drum machine</h1>
+					<div id="pad-container">
+					  <DrumPads top={this.state.top} playSound={this.playSound}/>
+					</div>
+					<div id="display-container">
+        		<Display text={this.state.text}/>
+						<OnOffSwitch switchValue={this.state.on} toggleOnOff={this.handleOnOff} leftOption="OFF" rightOption="ON"/>
+            <OnOffSwitch switchValue={this.state.top} toggleOnOff={this.handleTopBottom} leftOption="TOP" rightOption="BOTTOM"/>
+						
+					</div>
+     		</div>
+    	);
+  	}
+		playSound(sound, soundText) {
+			if (this.state.on) {	
+				this.setState({text: soundText});
+				console.log("play gr");
+				let x = document.getElementById(sound);
+				x.play();
+		  }			
+		}
+		handleOnOff() {
+			console.log("start on-off "+this.state.on);
+			this.setState({on:!this.state.on}, this.updateDisplayMessage);
+      console.log("State after setstate "+this.state.on);
+      console.log("State "+this.state.on);
+		}
+    handleKeyDown() {
+      let letter=event.key;
+      switch(letter.toUpperCase()) {
+        case "Q": this.state.top?this.playSound("Q", "Heater-1"):this.playSound("Q", "Chord-1"); break;
+        case "W": this.state.top?this.playSound("W", "Heater-2"):this.playSound("W", "Chord-2"); break;
+        case "E": this.state.top?this.playSound("E", "Heater-3"):this.playSound("E", "Chord-3"); break;
+        case "A": this.state.top?this.playSound("A", "Heater-4_1"):this.playSound("A", "Give_us_a_light"); break;
+        case "S": this.state.top?this.playSound("S", "Heater-6"):this.playSound("S", "Dry_Ohh"); break;
+        case "D": this.state.top?this.playSound("D", "Dsc_Oh"):this.playSound("D", "Bld_H1"); break;
+        case "Z": this.state.top?this.playSound("Z", "Kick_n_Hat"):this.playSound("Z", "punchy_kick_1"); break;
+        case "X": this.state.top?this.playSound("X", "RP4_KICK_1"):this.playSound("X", "side_stick_1"); break;
+        case "C": this.state.top?this.playSound("C", "Cev_H2"):this.playSound("C", "Brk_Snr"); break;
+      }
+     
+    }
+    updateDisplayMessage() {
+      if (!this.state.on) {
+        this.setState({text:""});
+      } else {
+        this.setState({text:"hello"});
+      }
+    }
+		handleTopBottom() {
+			console.log("TopBottom");
+			this.setState({top:!this.state.top});
+		}
+	}
+  ReactDOM.render(
+  	<Main />,
+  	document.getElementById('root')
+	);
+		</script>
+	</body>
+</html>
